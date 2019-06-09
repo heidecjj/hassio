@@ -1,47 +1,43 @@
 {
+  "name": "ESPHome (beta)",
+  "version": "1.12.2",
+  "slug": "esphome-beta",
+  "description": "Beta version of ESPHome Hass.io add-on.",
+  "url": "https://beta.esphome.io/",
+  "webui": "http://[HOST]:[PORT:6052]",
+  "startup": "application",
   "arch": [
     "amd64",
-    "i386",
-    "armv7",
-    "aarch64"
+    "armhf",
+    "i386"
   ],
-  "auth_api": true,
-  "auto_uart": true,
-  "boot": "auto",
-  "description": "Beta version of ESPHome Hass.io add-on.",
   "hassio_api": true,
+  "auth_api": true,
   "hassio_role": "default",
   "homeassistant_api": false,
   "host_network": true,
-  "image": "esphome/esphome-hassio-{arch}",
-  "ingress": true,
-  "ingress_port": 0,
+  "boot": "auto",
+  "auto_uart": true,
   "map": [
-    "ssl:ro",
+    "ssl",
     "config:rw"
   ],
-  "name": "ESPHome (beta)",
-  "options": {},
-  "panel_icon": "mdi:chip",
-  "ports": {
-    "6052/tcp": null
-  },
-  "ports_description": {
-    "6052/tcp": "Web interface (Not required for Hass.io Ingress)"
+  "options": {
+    "ssl": false,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem",
+    "port": 6052
   },
   "schema": {
-    "certfile": "str?",
-    "esphome_version": "str?",
-    "keyfile": "str?",
+    "ssl": "bool",
+    "certfile": "str",
+    "keyfile": "str",
+    "port": "int",
     "leave_front_door_open": "bool?",
+    "esphome_version": "str?",
+    "streamer_mode": "bool?",
     "relative_url": "str?",
-    "ssl": "bool?",
-    "status_use_ping": "bool?",
-    "streamer_mode": "bool?"
+    "status_use_ping": "bool?"
   },
-  "slug": "esphome-beta",
-  "startup": "application",
-  "url": "https://beta.esphome.io/",
-  "version": "1.13.5",
-  "webui": "http://[HOST]:[PORT:6052]"
+  "image": "esphome/esphome-hassio-{arch}"
 }
